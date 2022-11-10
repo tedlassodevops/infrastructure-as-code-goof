@@ -236,6 +236,13 @@ Resources:
 
   DefaultContainerBucket:
     Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
 
   CodePipelineArtifactBucket:
     Type: AWS::S3::Bucket
@@ -556,6 +563,8 @@ Resources:
           - DaysToRetainUntaggedContainerImages: !Ref DaysToRetainUntaggedContainerImages
             MaxTaggedContainerImagesToRetain: !Ref MaxTaggedContainerImagesToRetain
             EnvironmentName: !Ref EnvironmentName
+      ImageScanningConfiguration:
+        ScanOnPush: True
 
   FargateEcsCluster:
     Type: AWS::ECS::Cluster
