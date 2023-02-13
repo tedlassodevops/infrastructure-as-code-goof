@@ -5,5 +5,9 @@ resource "aws_s3_bucket" "writable" {
 
 resource "aws_s3_bucket" "readable" {
   bucket = "readable"
-  acl = "public-read"
+  acl = "private"
+  bucket = aws_s3_bucket.readable.id
+
+  target_bucket = aws_s3_bucket.readable_log_bucket.id
+  target_prefix = "log/"
 }
