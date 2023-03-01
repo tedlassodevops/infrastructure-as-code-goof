@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "writable" {
   bucket = "writable"
-  acl = "public-read-write"
+  acl = "private"
 }
 
 resource "aws_s3_bucket" "readable" {
