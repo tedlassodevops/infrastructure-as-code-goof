@@ -32,6 +32,7 @@ resource "aws_instance" "denied_3" {
   user_data = <<META
 SECRET_ACCESS_KEY=12345aaaaaa67890bbbbbbb12345465cccd+cdrr
 META
+  monitoring = true
 }
 
 resource "aws_instance" "allowed" {
