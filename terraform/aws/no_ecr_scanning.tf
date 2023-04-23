@@ -11,4 +11,7 @@ resource "aws_ecr_repository" "denied_2" {
     scan_on_push = false
   }
 
+  encryption_configuration {
+    encryption_type = "KMS"
+  }
 }
