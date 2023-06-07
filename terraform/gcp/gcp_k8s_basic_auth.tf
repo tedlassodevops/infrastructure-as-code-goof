@@ -12,6 +12,9 @@ resource "google_container_cluster" "denied_3" {
 
 resource "google_container_cluster" "denied_4" {
   master_auth {
+    client_certificate_config {
+      issue_client_certificate = false
+    }
     username = "test"
   }
 }
